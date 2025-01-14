@@ -1,0 +1,74 @@
+// Widescreen - 1749px
+@include screen(xxxl) { 
+
+    [class*='gutters'] {
+        margin-left:  -15px;
+        margin-right: -15px;
+
+        .col,
+        [class*="col-"] {
+            padding-left:  15px;
+            padding-right: 15px;
+        }
+    }
+}
+
+// Desktop - 1499px
+@include screen(xxl) { }
+
+// Laptop-sm  1365px
+@include screen(xl) { }
+
+// Tablet-lg - 1199px
+@include screen(lg) {
+
+    // Margins
+    .mb--lg-20 { margin-bottom: 20px; }
+    .mb--lg-30 { margin-bottom: 30px; }
+    .mb--lg-60 { margin-bottom: 60px; }
+}
+
+// Tablet - 991px
+@include screen(md) {
+
+    // Align
+    .txt--md-center { text-align: center; }
+
+    // Margins
+    .mb--md-30 { margin-bottom: 30px; }
+    .mb--md-50 { margin-bottom: 20px; }
+}
+
+// Phablet - 767px
+@include screen(sm) {
+    // Margins
+    .mb--sm-10 { margin-bottom: 10px; }
+    .mb--sm-15 { margin-bottom: 15px; }
+    .mb--sm-20 { margin-bottom: 20px; }
+    .mb--sm-30 { margin-bottom: 30px; }
+    .mb--sm-40 { margin-bottom: 40px; }
+}
+
+// Mobile - 575px
+@include screen(xs) {
+
+    // Margins
+    .mr--xs-0 { margin-right: 0; }
+
+    .mb--xs-0  { margin-bottom: 0; }
+    .mb--xs-5  { margin-bottom: 5px; }
+    .mb--xs-10 { margin-bottom: 10px; }
+    .mb--xs-15 { margin-bottom: 15px; }
+    .mb--xs-20 { margin-bottom: 20px; }
+    .mb--xs-30 { margin-bottom: 30px; }
+}
+
+// Mobile-xxs - 420px
+@include screen(xxs) {
+
+    // Display properties
+    .d-xxs-none { display: none !important; }
+}
+
+// Mobile-xxxs - 380px
+@include screen(xxxs) {}

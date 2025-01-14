@@ -1,0 +1,210 @@
+/*----------------------------------------------------------------------------*/
+/*#POPUP STYLE*/
+/*----------------------------------------------------------------------------*/
+
+body {
+    .popup {
+        display: none;
+        position: relative;
+        background-color: #060c0e;
+        max-width: 880px;
+        width: 100%;
+        border-radius: 20px;
+        padding: 30px;
+        box-shadow: 0 20px 50px 0 rgba(4, 230, 230, 0.30);
+        margin: auto;
+        
+        @include screen(lg) { padding: 30px 25px; }
+        @include screen(md) { padding: 25px 20px; }
+        @include screen(sm) { padding: 25px 15px; }
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            border-radius: inherit;
+            border: 3px solid transparent;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);
+            -webkit-mask-composite: destination-out;
+            background: linear-gradient(90deg,#04e6e6 50%,#019191 100%) border-box;
+            transition: opacity .3s ease-in-out;
+        }
+
+        .box-form__error,
+        .box-form__success {
+            background-color: inherit;
+            border-radius: inherit;
+        }
+
+        &.box-form { border: none; }
+
+        &__wrapper {
+            display: flex;
+            align-items: center;
+            flex-direction: row;
+            justify-content: center;
+            gap: 45px;
+            margin-bottom: 50px;
+
+            @include screen(md) { gap: 30px; }
+            @include screen(sm) {
+                justify-content: space-evenly;
+                margin-bottom: 40px;
+            }
+            @include screen(xs) {
+                flex-direction: column;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 20px;
+            }
+        }
+
+        &__txt {
+            @include screen(xs) { width: 100%; }
+        }
+
+        &__title {
+            text-align: left;
+            text-transform: capitalize;
+            margin-bottom: 15px;
+
+            @include screen(xs) { text-align: center; }
+        }
+
+        .list-checkmark {
+            li {
+                font-size: 20px;
+                @include screen(sm) {
+                    font-size: 19px;
+                    margin-bottom: 15px;
+                }
+                @include screen(xs) {
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        &__playbook {
+            flex-shrink: 0;
+            margin-bottom: -15px;
+            @include screen(md) { max-width: 45%; }
+            @include screen(sm) {
+                max-width: 35%;
+                margin-left: -30px;
+                margin-right: -5px;
+            }
+            @include screen(xs) {
+                float: right;
+                max-width: 30%;
+                margin-left: 15px;
+                margin-right: -5px;
+                margin-bottom: -10px;
+            }
+            @include screen(xxs) { max-width: 35%; }
+
+            img {
+                display: block;
+                flex-shrink: 0;
+            }
+        }
+
+        .form-contact {
+            gap: 30px;
+
+            @include screen(lg) {
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            @include screen(sm) { gap: 30px 15px; }
+            @include screen(xs) { gap: 10px; }
+
+            .input-field {
+                input {
+                    @include screen(sm) { font-size: 18px; }
+                    @include screen(xs) { padding:  15px 15px 15px 35px; }
+                }
+            }
+
+            .btn {
+                @include screen(xs) { margin-top: 25px; }
+            }
+        }
+    }
+
+/* purgecss start ignore */
+    .fancybox {
+        &__slide {
+            // justify-content: center;
+            padding: 40px 20px;
+            @include screen (sm) { padding: 30px 20px; }
+            @include screen (sm) { padding: 30px 15px; }
+
+            &::before,
+            &::after { content: none; }
+        }
+
+        &__container {
+            z-index: 9999;
+
+            .carousel__button.is-close {
+                background: url('../images/icons/x-green-gradient.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-color: #111820;
+                width:  40px;
+                height: 40px;
+                top:   20px;
+                right: 20px;
+                opacity: 1;
+                border-radius: 50px;
+                padding: 5px;
+                transition: opacity .3s ease-in-out, top .3s ease-in-out, right .3s ease-in-out, width .3s ease-in-out, height .3s ease-in-out;
+
+                @include screen(sm) {
+                    top:   -15px;
+                    right: -10px;
+                }
+
+                @include screen(xs) {
+                    width: 35px;
+                    height: 35px;
+                }
+
+                &:hover {
+                    &::before { opacity: 1; }
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: 0;
+                    bottom: 0;
+                    right: 0;
+                    border-radius: inherit;
+                    border: 2px solid transparent;
+                    -webkit-mask: linear-gradient($white 0 0) padding-box, linear-gradient($white 0 0);
+                    -webkit-mask-composite: destination-out;
+                    background: linear-gradient(90deg, rgba(4,230,230,1) 50%, rgba(1,145,145,1) 100%) border-box;
+                    opacity: 0;
+                    transition: opacity .3s ease-in-out;
+                    z-index: -1;
+
+                    @include screen(sm) { opacity: 1; }
+                }
+
+                svg { display: none }
+            }
+        }
+    }
+
+    .swal2-popup .swal2-html-container {
+        margin: 0;
+        padding: 1em 1.6em 0.3em;
+    }
+}
+/* purgecss end ignore */

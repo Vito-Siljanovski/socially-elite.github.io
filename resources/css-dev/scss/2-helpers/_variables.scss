@@ -1,0 +1,41 @@
+/*----------------------------------------------------------------------------*/
+/*#VARIABLES*/
+/*----------------------------------------------------------------------------*/
+
+// FONT STACK & FALLBACK
+$OpenSans: "Open Sans", "Segoe UI", Tahoma, sans-serif;
+$Inter: "Inter", "Trebuchet MS", Helvetica, sans-serif;
+$Montserrat: 'Montserrat', Verdana, sans-serif;
+$Lato: "Lato", "Lucida Grande", Tahoma, sans-serif;
+$Gilory: "Gilroy", sans-serif;
+$Poppins: "Poppins", "Lucida Grande", Verdana, sans-serif;
+$Roboto: "Roboto", "Franklin Gothic Medium", Tahoma, sans-serif;
+$Oswald: "Oswald", Impact, "Franklin Gothic Bold", sans-serif;
+$PlayfairDisplay: "Playfair Display", "Didot", "Times New Roman", Times, serif;
+$FontAwesome6: 'Font Awesome 6 Pro';
+
+// SCREEN SIZES
+$screen-xxxl: 1749px; // widescreen
+$screen-xxl:  1499px; // desktop
+$screen-xl:   1365px; // laptop-sm
+$screen-lg:   1199px; // tablet-lg
+$screen-md:    991px; // tablet
+$screen-sm:    767px; // phablet
+$screen-xs:    575px; // mobile
+$screen-xxs:   420px; // mobile-xxs
+$screen-xxxs:  380px; // mobile-xxxs
+
+// DEFAULTS
+$default-link-color: #2676ba;
+$default-txt-color: #dfdfdf;
+
+// COLORS
+$primary: #9459ff;
+$secondary: #449bfb;
+
+$white: #fff;
+$black: #000;
+
+// FONTS
+$ff-primary: $Lato;
+$ff-secondary: $Gilory;

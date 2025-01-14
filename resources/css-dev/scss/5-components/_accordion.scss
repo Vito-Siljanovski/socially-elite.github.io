@@ -1,0 +1,129 @@
+/*----------------------------------------------------------------------------*/
+/*#ACCORDIONS STYLE*/
+/*----------------------------------------------------------------------------*/
+
+.accordion {
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+    background-color: transparent;
+    z-index: 1;
+
+    @include screen(sm) { margin-bottom: 30px; }
+    @include screen(xs) { margin-bottom: 25px; }
+
+    // Show first element
+    &:first-of-type &__content { display: block; }
+
+    // Remove margin of last item
+    &:last-child { margin-bottom: 0; }
+
+    // Accordion header
+    &__header {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 25px;
+        position: relative;
+        color: $white;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $white;
+        transition: padding .3s ease-in-out;
+        cursor: pointer;
+        
+        @include screen(sm) { padding-bottom: 15px; }
+        @include screen(xs) { padding-bottom: 10px; }
+    }
+
+    &__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 3px;
+        background: linear-gradient(90deg, rgba($white, 0.25) 0%, rgba($white, 0.075) 82%);
+        transition: box-shadow .3s ease-in-out;
+        flex-shrink: 0;
+
+        &:hover { box-shadow: 0 0 0 1px $white inset; }
+
+        img {
+            display: block;
+            user-select: none;
+            pointer-events: none;
+            transition: transform .3s ease-in-out;
+        }
+    }
+
+    // Accordion title
+    &__heading {
+        text-transform: capitalize;
+        text-align: left;
+        margin-bottom: 0;
+
+        @include screen(sm) { font-size: 22px; }
+        @include screen(xs) { font-size: 20px; }
+    }
+
+    // Accordion content
+    &__content {
+        display: none;
+        position: relative;
+        padding-top: 20px;
+        overflow: hidden;
+
+        @include screen(sm) { padding-top: 15px; }
+        @include screen(xs) { padding-top: 10px; }
+
+        // Remove margin of last paragraph
+        p {
+            font-size: 20px;
+
+            @include screen(xs) { font-size: 18px; }
+
+            &:last-child { margin-bottom: 0; }
+        }
+    }
+
+    // Style for the open accordion
+    &.active {
+        .accordion__icon {
+            img { transform: rotate(180deg); }
+        }
+    }
+
+    &-list {
+        height: 100%;
+        margin-bottom: 0;
+
+        @include screen(sm) { margin-bottom: 0; }
+        @include screen(xs) { margin-bottom: 0; }
+
+        &:first-of-type {
+            .accordion__content {
+                display: flex;
+                @include screen(md) { display: none; }
+            }
+        }
+
+        .accordion__content {
+            display: flex;
+            padding-top: 40px;
+            overflow: inherit;
+            
+            @include screen(md) {
+                display: none;
+                padding-top: 20px;
+            }
+        }
+
+        &.active {
+            .btn-view {
+                &::before {  background: url('../images/icons/circle-minus.svg') no-repeat center/contain; }
+
+                &::after { content: "Hide Details"; }
+            }
+        }
+    }
+}

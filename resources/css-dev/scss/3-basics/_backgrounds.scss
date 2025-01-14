@@ -1,0 +1,16 @@
+/*----------------------------------------------------------------------------*/
+/*#BACKGROUND STYLE*/
+/*----------------------------------------------------------------------------*/
+
+.bg {
+
+    // Background Properties
+    &--properties {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    // Background Colors
+    &--white { background-color: $white; }
+}

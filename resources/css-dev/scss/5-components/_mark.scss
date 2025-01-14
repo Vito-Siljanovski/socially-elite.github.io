@@ -1,0 +1,32 @@
+/*----------------------------------------------------------------------------*/
+/*#MARK STYLE*/
+/*----------------------------------------------------------------------------*/
+$mark-bg: $secondary;
+$mark-color: $white;
+
+.mark {
+  border-radius: 10px;
+  padding: 3px 10px 5px 10px;
+  background-color: $mark-bg;
+  color: $mark-color;
+  line-height: 1.6;
+  font-weight: 800;
+  /* Needs prefixing */
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+
+  @supports(mix-blend-mode: lighten) {
+
+    &::after {
+      position: absolute;
+      content: '';
+      top:    0;
+      right:  0;
+      bottom: 0;
+      left:   0;
+      pointer-events: none;
+      background: $mark-bg;
+      mix-blend-mode: lighten;
+    }
+  }
+}

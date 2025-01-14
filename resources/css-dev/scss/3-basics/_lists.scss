@@ -1,0 +1,106 @@
+/*----------------------------------------------------------------------------*/
+/*#LISTS STYLE*/
+/*----------------------------------------------------------------------------*/
+$list-dot-bg: $black;
+
+.list {
+
+    // Default style with custom bullets
+    li {
+        position: relative;
+        padding-left: 20px;
+
+        &:before {
+            content: "";
+            position: absolute;
+            top:  5px;
+            left: 0;
+            width:  10px;
+            height: 10px;
+            background-color: $list-dot-bg;
+            border-radius: 50%;
+        }
+
+        &:last-child { margin-bottom: 0; }
+    }
+
+    // List style for circle
+    &-circle {
+        li {
+            padding-left: 25px;
+
+            &::before {
+                content: "";
+                background: transparent;
+                border: 2px solid rgba($white, 0.4);
+                top: 8px;
+                width:  15px;
+                height: 15px;
+                border-radius: 50px;
+                transition: top .3s ease-in-out;
+            }
+        }
+    }
+    
+
+    // List style for circle
+    &-circle-dashed {
+        li {
+            padding-left: 40px;
+
+            &::before {
+                content: "";
+                background: url('../images/icons/circle-dashed-green-gradiend.svg') no-repeat center/contain transparent;
+                width:  20px;
+                height: 21px;
+            }
+        }
+    }
+
+    &-checkmark {
+        li {
+            padding-left: 25px;
+
+            &::before {
+                content: "";
+                background: url('../images/icons/checkmark.svg') no-repeat center/contain transparent;
+                width:  16px;
+                height: 12px;
+                top: 8px;
+            }
+        }
+    }
+
+    // List style for custom ordered list
+    &-num {
+        counter-reset: list-num;
+
+        li {
+            counter-increment: list-num;
+            
+            &::before {
+                content: counter(list-num) ".";
+                background: none;
+            }
+        }
+    }
+
+    // List LG
+    &--lg {
+        li { font-size: 22px; }
+    }
+}
+
+// Style for the references
+.references {
+    word-break: break-all;
+    text-align: left;
+    padding-left: 40px;
+    list-style-type: decimal;
+
+    li {
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 0;
+    }
+}

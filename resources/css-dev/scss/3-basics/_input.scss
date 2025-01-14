@@ -1,0 +1,133 @@
+/*----------------------------------------------------------------------------*/
+/*#INPUT STYLE*/
+/*----------------------------------------------------------------------------*/
+
+.input-field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+
+    &__icon {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+        max-width: 30px;
+        width: 100%;
+        pointer-events: none;
+
+        &-textarea { top: 25px; }
+
+        &::after {
+            content: "";
+            filter: brightness(0) saturate(100%) invert(34%) sepia(43%) saturate(2487%) hue-rotate(333deg) brightness(107%) contrast(101%);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+        }
+
+        img { display: block; }
+    }
+
+    input,
+    textarea {
+        color: $white;
+        background-color: transparent;
+        width: 100%;
+        font-size: 20px;
+        padding: 20px 15px 20px 40px;
+        border: none;
+        border-bottom: 1px solid $white;
+        border-radius: 0;
+        transition: border-color .3s ease-in-out;
+
+        &::placeholder {
+            color: inherit;
+            font-size: inherit;
+        }
+    }
+
+    input { background-position: center left; }
+    
+    // Textarea
+    textarea {
+        min-height: 130px;
+        max-height: 130px;
+        resize: none;
+    }
+
+    // Parsley
+    input.parsley-error,
+    textarea.parsley-error { border-color:#ff4747; }
+
+    .parsley-error ~ .input-field__icon { filter: brightness(0) saturate(100%) invert(34%) sepia(43%) saturate(2487%) hue-rotate(333deg) brightness(107%) contrast(101%); }
+
+    .parsley-errors-list {
+        position: absolute;
+        right: 0;
+        bottom: -20px;
+
+        li {
+            font-size: 14px;
+            line-height: 1;
+            color: #ff4747;
+            letter-spacing: 0.14px;
+            padding-left: 20px;
+            margin-bottom: 0;
+
+            &::before {
+                content: '';
+                background-image: url('../images/icons/warning.svg');
+                width: 16px;
+                height: 13px;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    }
+}
+
+.form-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 40px;
+    transition: gap .3s ease-in-out;
+
+    @include screen(lg) {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 20px;
+    }
+
+    @include screen(sm) { gap: 10px; }
+
+    .input-field {
+        flex-grow: 1;
+        margin-bottom: 0;
+
+        &--message {
+            flex-grow: 2;
+            margin-bottom: 10px;
+            transition: margin-bottom .3s ease-in-out;
+
+            @include screen(lg) { margin-bottom: 20px; }
+
+            .input-field__icon { top: 22px; }
+        }
+    }
+
+    button {
+        margin-top: 10px;
+        @include screen(sm) { margin-top: 20px; }
+    }
+}
+
+.input-field input:-webkit-autofill, .input-field input:-webkit-autofill:focus, .input-field input:-webkit-autofill:hover, .input-field select:-webkit-autofill, .input-field select:-webkit-autofill:focus, .input-field select:-webkit-autofill:hover, .input-field textarea:-webkit-autofill, .input-field textarea:-webkit-autofill:focus, .input-field textarea:-webkit-autofill:hover {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
